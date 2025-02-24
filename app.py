@@ -9,11 +9,11 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_community.document_loaders import PyPDFLoader
 
-# llm4=AzureChatOpenAI(openai_api_key="",
-#                      openai_api_version="",
-#                      azure_deployment="",
-#                      azure_endpoint="",
-#                      temperature=0)
+llm4=AzureChatOpenAI(openai_api_key="",
+                     openai_api_version="",
+                     azure_deployment="",
+                     azure_endpoint="",
+                     temperature=0)
 
 vector_store_name="rag_qa"
 
@@ -30,29 +30,29 @@ def main_func(question):
 
     retrieved_docs=retriever.invoke("what are the taxes imposed on electronic goods")
     
-    # template="""Use the following pieces of context to answer the question at the end.
-    #             If you don't know the answer, just say that you don't know, don't try to make up an answer.
-    #             Kep the answer as concise as possible. Please give answer in points
+    template="""Use the following pieces of context to answer the question at the end.
+                If you don't know the answer, just say that you don't know, don't try to make up an answer.
+                Kep the answer as concise as possible. Please give answer in points
                 
-    #             {context}
+                {context}
                 
-    #             Question: {question}
+                Question: {question}
                 
-    #             Answer: """
-    # prompt=PromptTemplate.from_template(template)
+                Answer: """
+    prompt=PromptTemplate.from_template(template)
     
-    # def format_docs(docs):
-    #     print(len(docs))
-    #     return "\n\n".join(doc.page_content for doc in docs)
+    def format_docs(docs):
+        print(len(docs))
+        return "\n\n".join(doc.page_content for doc in docs)
 
-    # rag_chain = (
-    #     { "context": retriever | format_docs, "question": RunnablePassthrough()}
-    #     | prompt
-    #     | llm4
-    #     | StrOutputParser()
-    # ) 
-    # aa=rag_chain.invoke(question)
-    return retrieved_docs
+    rag_chain = (
+        { "context": retriever | format_docs, "question": RunnablePassthrough()}
+        | prompt
+        | llm4
+        | StrOutputParser()
+    ) 
+    aa=rag_chain.invoke(question)
+    return aa
 
-if __name__=="__main__":
-    main_func("what are the taxes imposed on electronic goods")
+# if __name__=="__main__":
+#     main_func("what are the taxes imposed on electronic goods")
