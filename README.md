@@ -2,7 +2,8 @@ Input File - budget_speech.pdf <br/>
 Documentation File - a&A doc.pdf <br/>
 Vector Database Storage - rag_qa <br/>
 Main Application File - run.py <br/>
-RAG File - main.py
+RAG File - main.py <br/>
+Test Case File - test_Cases.xlxs
 
 <b>Run this application on local:</b><br/>
  &nbsp; Step 1: Install requirements.txt using <b>pip install -r requirements.txt</b> <br/>
