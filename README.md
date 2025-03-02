@@ -56,5 +56,3 @@ This application is a Retrieval-Augmented Generation (RAG)-based Q&A system that
 - **Main Application File**: `run.py`
 - **RAG Logic File**: `main.py`
 - **Test Cases**: `test_Cases.xlsx`
-
-This setup ensures smooth execution of the Q&A application using a structured RAG-based approach.
